@@ -538,6 +538,7 @@ func run() {
 			elapsedR := time.Since(startR)
 
 			if game.nbCompledLines > 0 {
+				//-- Remove Completed lines
 				if elapsedV.Milliseconds() > 250 {
 					startV = time.Now()
 					game.nbCompledLines--
@@ -545,6 +546,7 @@ func run() {
 					PlaySuccesSound()
 				}
 			} else if game.horizontalMove != 0 {
+				//-- Move to the next slot
 				elapsed := time.Since(startH)
 				if elapsed.Milliseconds() > 20 {
 					startH = time.Now()
@@ -586,7 +588,7 @@ func run() {
 				}
 
 			} else if game.fDrop {
-
+				//-- Drop Tetromino
 				if elapsedV.Milliseconds() > 10 {
 					startV = time.Now()
 					for iOffSet := 0; iOffSet < 6; iOffSet++ {
@@ -635,7 +637,7 @@ func run() {
 				}
 
 			} else {
-
+				//-- Move down Tetromino
 				var limitElapse int64 = 25
 				if game.fFastDown {
 					limitElapse = 10

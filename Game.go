@@ -334,9 +334,9 @@ func (ga *Game) ComputeScore(nbLines int) int {
 	case 3:
 		score = 300
 	case 4:
-		score = 2000
+		score = 1400
 	default:
-		score = 2000
+		score = 3000
 	}
 	return score
 }

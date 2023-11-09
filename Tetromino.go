@@ -169,7 +169,6 @@ func (te *Tetromino) IsOutBottomLimit() bool {
 func (te *Tetromino) HitGround(board []int) bool {
 
 	//--------------------------------------------------
-
 	Hit := func(x int32, y int32) bool {
 		ix := int32(x / cellSize)
 		iy := int32(y / cellSize)
