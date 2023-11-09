@@ -138,8 +138,8 @@ func NewTetromino() {
 	//--------------------------------------------------
 	curTetromino = nextTetromino
 	curTetromino.x = 6 * cellSize
-	curTetromino.y = NB_ROWS*cellSize - cellSize
-	//curTetromino.y = -curTetromino.MaxY() * cellSize
+	//curTetromino.y = NB_ROWS*cellSize - cellSize
+	curTetromino.y = WIN_HEIGHT - TOP + curTetromino.MaxY()*cellSize
 	nextTetromino = TetrominoNew(TetrisRandomizer(), (NB_COLUMNS+3)*cellSize, 10*cellSize)
 
 }
