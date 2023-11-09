@@ -165,7 +165,7 @@ func ProcessEventsPlay(win pixelgl.Window) bool {
 			//-- Drop current Tetromino
 			game.fDrop = true
 		}
-	} else if win.JustPressed(pixelgl.KeyS) {
+	} else if win.JustPressed(pixelgl.KeyPause) {
 		speaker.Lock()
 		musicCtrl.Paused = !musicCtrl.Paused
 		speaker.Unlock()
@@ -204,7 +204,7 @@ func ProcessEventsStandBy(win pixelgl.Window) bool {
 		drawCurMode = DrawPlayMode
 		NewTetromino()
 		game.curScore = 0
-	} else if win.JustPressed(pixelgl.KeyS) {
+	} else if win.JustPressed(pixelgl.KeyPause) {
 		speaker.Lock()
 		musicCtrl.Paused = !musicCtrl.Paused
 		speaker.Unlock()
@@ -230,7 +230,7 @@ func ProcessEventsGameOver(win pixelgl.Window) bool {
 		drawCurMode = DrawStandByMode
 		curTetromino = nil
 		game.ClearBoard()
-	} else if win.JustPressed(pixelgl.KeyS) {
+	} else if win.JustPressed(pixelgl.KeyPause) {
 		speaker.Lock()
 		musicCtrl.Paused = !musicCtrl.Paused
 		speaker.Unlock()
@@ -254,7 +254,7 @@ func ProcessEventsHightScores(win pixelgl.Window) bool {
 		game.curMode = STANDBY
 		processEvents = ProcessEventsStandBy
 		drawCurMode = DrawStandByMode
-	} else if win.JustPressed(pixelgl.KeyS) {
+	} else if win.JustPressed(pixelgl.KeyPause) {
 		speaker.Lock()
 		musicCtrl.Paused = !musicCtrl.Paused
 		speaker.Unlock()
