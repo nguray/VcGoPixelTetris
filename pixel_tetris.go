@@ -230,7 +230,6 @@ func ProcessEventsGameOver(win pixelgl.Window) bool {
 		drawCurMode = DrawStandByMode
 		curTetromino = nil
 		game.ClearBoard()
-		//PlaySuccesSound()
 	} else if win.JustPressed(pixelgl.KeyS) {
 		speaker.Lock()
 		musicCtrl.Paused = !musicCtrl.Paused
@@ -503,6 +502,7 @@ func run() {
 	for !win.Closed() {
 
 		if !processEvents(*win) {
+			//-- Manage Escape from PLAY mode
 			if game.curScore != 0 {
 				id := game.IsHightScore(game.curScore)
 				//-- Manage Game Over and User Escape
@@ -532,6 +532,7 @@ func run() {
 		}
 
 		if game.curMode == PLAY {
+			//-- Update game state
 
 			elapsedV := time.Since(startV)
 			elapsedR := time.Since(startR)
